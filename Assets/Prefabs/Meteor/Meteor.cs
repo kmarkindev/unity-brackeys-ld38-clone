@@ -15,7 +15,7 @@ public class Meteor : MonoBehaviour
 
     private void Start()
     {
-        planetDir = gameManager.planet.transform.position - transform.position;
+        planetDir = gameManager.Planet.transform.position - transform.position;
 
         transform.rotation = Quaternion.FromToRotation(transform.forward, planetDir) * transform.rotation;
     }
@@ -34,7 +34,7 @@ public class Meteor : MonoBehaviour
     {
         if(collision.gameObject.tag == "Planet")
         {
-            // spawn crator on planet
+            // spawn rock on planet
 
             Destroy(gameObject);
         }

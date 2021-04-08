@@ -47,8 +47,8 @@ public class Car : MonoBehaviour
             StopRotate();
         }
 
-        gameManager.planet.PositionCar();
-        gameManager.planet.RotateCar();
+        gameManager.Planet.PositionCar();
+        gameManager.Planet.RotateCar();
     }
 
     private void StartRotate(bool rotateLeft)
@@ -71,7 +71,7 @@ public class Car : MonoBehaviour
     {
         if(collision.gameObject.tag == "Meteor")
         {
-            // Call Game over
+            gameManager.GameOver();
         }
     }
 

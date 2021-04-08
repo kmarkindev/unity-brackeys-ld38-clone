@@ -12,7 +12,7 @@ public class Planet : MonoBehaviour
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        car = gameManager.car;
+        car = gameManager.Car;
         sc = GetComponent<SphereCollider>();
     }
 
