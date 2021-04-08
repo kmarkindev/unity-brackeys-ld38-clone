@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 1710637231}
   planet: {fileID: 1951751807}
+  meteorSpawner: {fileID: 1971225190}
 --- !u!4 &1037225474
 Transform:
   m_ObjectHideFlags: 0
@@ -282,6 +283,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9576230d2973c7c4bbdb58e14f110ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1971225189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1971225191}
+  - component: {fileID: 1971225190}
+  m_Layer: 0
+  m_Name: MeteorSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1971225190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971225189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1535b5860feff642ad6a9f180a1d345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1971225191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971225189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1584125440162694714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,11 +388,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1584125439535683042, guid: 5191a3622fc388e4097ed1afe1fcfcea,
-        type: 3}
-      propertyPath: speed
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 1584125439535683053, guid: 5191a3622fc388e4097ed1afe1fcfcea,
         type: 3}
       propertyPath: m_Name
@@ -366,11 +405,6 @@ PrefabInstance:
     - target: {fileID: 4739257272169170584, guid: c66e43986a13b7b44ab597b864af52aa,
         type: 3}
       propertyPath: m_Name
-      value: Planet
-      objectReference: {fileID: 0}
-    - target: {fileID: 4739257272169170584, guid: c66e43986a13b7b44ab597b864af52aa,
-        type: 3}
-      propertyPath: m_TagString
       value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 4739257272169170586, guid: c66e43986a13b7b44ab597b864af52aa,
@@ -430,6 +464,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c66e43986a13b7b44ab597b864af52aa, type: 3}
+--- !u!1 &5622719286042753727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2971348555250844388, guid: 73dac0b21894bf84cab88006ee0afd59,
+    type: 3}
+  m_PrefabInstance: {fileID: 7438733422983919707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5622719286042753728
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622719286042753727}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 80b2a9422d1bb1a4bb26fd46bcb42d51, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7438733422983919707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -437,6 +496,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2483604800246683742, guid: 73dac0b21894bf84cab88006ee0afd59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438733422354135274, guid: 73dac0b21894bf84cab88006ee0afd59,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.5762539
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438733422354135274, guid: 73dac0b21894bf84cab88006ee0afd59,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.0968218
+      objectReference: {fileID: 0}
     - target: {fileID: 7438733422354135275, guid: 73dac0b21894bf84cab88006ee0afd59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -492,15 +566,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7438733422354135284, guid: 73dac0b21894bf84cab88006ee0afd59,
+        type: 3}
+      propertyPath: model
+      value: 
+      objectReference: {fileID: 5622719286042753727}
     - target: {fileID: 7438733422354135285, guid: 73dac0b21894bf84cab88006ee0afd59,
         type: 3}
       propertyPath: m_Name
       value: Car
-      objectReference: {fileID: 0}
-    - target: {fileID: 7438733422354135285, guid: 73dac0b21894bf84cab88006ee0afd59,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73dac0b21894bf84cab88006ee0afd59, type: 3}

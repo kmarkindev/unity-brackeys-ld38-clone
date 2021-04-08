@@ -7,4 +7,6 @@ public class GameManager : MonoBehaviour
 
     public Planet planet;
 
+    public MeteorSpawner meteorSpawner;
+
 }

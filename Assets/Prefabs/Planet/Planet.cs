@@ -16,13 +16,7 @@ public class Planet : MonoBehaviour
         sc = GetComponent<SphereCollider>();
     }
 
-    private void Update()
-    {
-        PositionCar();
-        RotateCar();
-    }
-
-    private void PositionCar()
+    public void PositionCar()
     {
         var carDir = (car.transform.position - transform.position).normalized;
         var planetSurfaceRadius = transform.localScale.x * sc.radius + planetGroundOffset;
@@ -31,7 +25,7 @@ public class Planet : MonoBehaviour
         car.transform.position = newCarPosition;
     }
 
-    private void RotateCar()
+    public void RotateCar()
     {
         var targetBottomVector = (transform.position - car.transform.position).normalized;
         var bottomVector = -car.transform.up;

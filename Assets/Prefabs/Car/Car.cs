@@ -2,7 +2,7 @@
 
 public class Car : MonoBehaviour
 {
-
+    private GameManager gameManager;
     public GameObject model;
 
     private Animator animator;
@@ -14,6 +14,7 @@ public class Car : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
         animator = model.GetComponent<Animator>();
         turnLeftHash = Animator.StringToHash("turnLeft");
         turnRightHash = Animator.StringToHash("turnRight");
@@ -28,14 +29,14 @@ public class Car : MonoBehaviour
     {
         transform.position += transform.forward * speed * Time.deltaTime;
 
-        if(Input.GetKey("a"))
+        if(Input.GetKey(KeyCode.A))
         {
             StartRotate(true);
 
             transform.rotation = Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, -transform.up) * transform.rotation;
 
         }
-        else if(Input.GetKey("d"))
+        else if(Input.GetKey(KeyCode.D))
         {
             StartRotate(false);
 
@@ -46,7 +47,10 @@ public class Car : MonoBehaviour
             StopRotate();
         }
 
+        gameManager.planet.PositionCar();
+        gameManager.planet.RotateCar();
     }
+
     private void StartRotate(bool rotateLeft)
     {
         animator.SetBool(turnLeftHash, rotateLeft);
