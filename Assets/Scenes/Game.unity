@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2185839d885cf4349873571cf342bd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 1710637231}
-  planet: {fileID: 1951751807}
+  Car: {fileID: 1710637231}
+  Planet: {fileID: 1951751807}
   meteorSpawner: {fileID: 1971225190}
 --- !u!4 &1037225474
 Transform:
@@ -336,12 +336,12 @@ PrefabInstance:
     - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 180.2
+      value: 152.5
       objectReference: {fileID: 0}
     - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 160.8
+      value: 137.5
       objectReference: {fileID: 0}
     - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
         type: 3}
@@ -392,6 +392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Meteor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673831938482603989, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: stopAction
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5191a3622fc388e4097ed1afe1fcfcea, type: 3}
@@ -575,6 +580,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438733423367230767, guid: 73dac0b21894bf84cab88006ee0afd59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 77.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438733423367230767, guid: 73dac0b21894bf84cab88006ee0afd59,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73dac0b21894bf84cab88006ee0afd59, type: 3}
