@@ -63,4 +63,12 @@ public class Car : MonoBehaviour
         model.transform.rotation = Quaternion.FromToRotation(model.transform.forward, transform.forward) * model.transform.rotation;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Meteor")
+        {
+            // Call Game over
+        }
+    }
+
 }

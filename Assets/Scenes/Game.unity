@@ -282,6 +282,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9576230d2973c7c4bbdb58e14f110ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1584125440162694714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 180.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 160.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683040, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683042, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: speed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584125439535683053, guid: 5191a3622fc388e4097ed1afe1fcfcea,
+        type: 3}
+      propertyPath: m_Name
+      value: Meteor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5191a3622fc388e4097ed1afe1fcfcea, type: 3}
 --- !u!1001 &4739257273438820580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,6 +366,11 @@ PrefabInstance:
     - target: {fileID: 4739257272169170584, guid: c66e43986a13b7b44ab597b864af52aa,
         type: 3}
       propertyPath: m_Name
+      value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739257272169170584, guid: c66e43986a13b7b44ab597b864af52aa,
+        type: 3}
+      propertyPath: m_TagString
       value: Planet
       objectReference: {fileID: 0}
     - target: {fileID: 4739257272169170586, guid: c66e43986a13b7b44ab597b864af52aa,
@@ -417,6 +496,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438733422354135285, guid: 73dac0b21894bf84cab88006ee0afd59,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73dac0b21894bf84cab88006ee0afd59, type: 3}
