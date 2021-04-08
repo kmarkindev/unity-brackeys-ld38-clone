@@ -31,10 +31,15 @@ public class Car : MonoBehaviour
         if(Input.GetKey("a"))
         {
             StartRotate(true);
+
+            transform.rotation = Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, -transform.up) * transform.rotation;
+
         }
         else if(Input.GetKey("d"))
         {
             StartRotate(false);
+
+            transform.rotation = Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, transform.up) * transform.rotation;
         }
         else
         {
