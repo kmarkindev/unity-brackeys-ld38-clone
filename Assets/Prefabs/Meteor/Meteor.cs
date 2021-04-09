@@ -57,6 +57,10 @@ public class Meteor : MonoBehaviour
         {
             DestroyMeteor();
         }
+        else if(collTag == "Player")
+        {
+            DestroyMeteor();
+        }
     }
 
     public void DestroyMeteor()

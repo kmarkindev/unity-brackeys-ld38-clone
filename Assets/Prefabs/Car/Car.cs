@@ -6,7 +6,9 @@ public class Car : MonoBehaviour, IResetable
     private GameManager gameManager;
     private Rigidbody rb;
     public GameObject model;
-    public Transform initialTransfrom;
+    private Transform initialTransfrom;
+
+    public GameObject explosion;
 
     private Animator animator;
     private int turnLeftHash;
@@ -105,10 +107,16 @@ public class Car : MonoBehaviour, IResetable
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!hasControlls)
+            return;
+
         string objTag = collision.gameObject.tag;
         if (objTag == "Meteor" || objTag == "Rock")
         {
             rb.isKinematic = true;
+
+            Instantiate(explosion, transform.position, transform.rotation);
+
             gameManager.GameOver();
         }
     }

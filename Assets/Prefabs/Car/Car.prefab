@@ -67,6 +67,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 2971348555250844388}
+  explosion: {fileID: 8864119250051567657, guid: f30728ecec31ec244b08bf73d592b2c6,
+    type: 3}
   speed: 15
   rotationSpeed: 70
 --- !u!65 &7438733422354135274

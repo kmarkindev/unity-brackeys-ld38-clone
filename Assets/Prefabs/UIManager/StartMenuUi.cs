@@ -7,6 +7,7 @@ public class StartMenuUi : MonoBehaviour
 {
 
     public Button playButton;
+    public Button exitButton;
 
     private GameManager gameManager;
 
@@ -17,6 +18,11 @@ public class StartMenuUi : MonoBehaviour
         playButton.onClick.AddListener(() =>
         {
             gameManager.StartGame();
+        });
+
+        exitButton.onClick.AddListener(() =>
+        {
+            Application.Quit();
         });
 
     }
