@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Assets.Prefabs.GameManager;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,22 +14,39 @@ public class GameManager : MonoBehaviour
     public float CurrentScore { get; private set; }
     public GamePhase GamePhase { get; private set; }
 
+    public UnityEvent OnGameOver;
+    public UnityEvent OnGameStart;
+    public UnityEvent OnStartMenu;
+
+    public void Start()
+    {
+        //StartMenu();
+        StartGame();
+    }
+
+    private void Update()
+    {
+        if (GamePhase == GamePhase.Gameplay)
+            CurrentScore += Time.deltaTime;
+    }
+
     public void GameOver()
     {
-        // pause game
-        // show UI
+        GamePhase = GamePhase.GameOver;
+        OnGameOver?.Invoke();
     }
 
     public void StartGame()
     {
-        // reset game state
-        // show ui
+        CurrentScore = 0;
+        GamePhase = GamePhase.Gameplay;
+        OnGameStart?.Invoke();
     }
 
     public void StartMenu()
     {
-        // pause game
-        // show ui
+        GamePhase = GamePhase.StartMenu;
+        OnStartMenu?.Invoke();
     }
 
 }

@@ -69,7 +69,8 @@ public class Car : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Meteor")
+        string objTag = collision.gameObject.tag;
+        if (objTag == "Meteor" || objTag == "Rock")
         {
             gameManager.GameOver();
         }

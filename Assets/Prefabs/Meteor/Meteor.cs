@@ -8,9 +8,19 @@ public class Meteor : MonoBehaviour
     private GameManager gameManager;
     private Vector3 planetDir;
 
+    public GameObject model;
+    public GameObject explosion;
+    public ParticleSystem[] particles;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        gameManager.OnGameStart.AddListener(OnGameStart);
+    }
+
+    private void OnGameStart()
+    {
+        Destroy(gameObject);
     }
 
     private void Start()
@@ -36,8 +46,35 @@ public class Meteor : MonoBehaviour
         {
             // spawn rock on planet
 
-            Destroy(gameObject);
+            DestroyMeteor();
         }
+    }
+
+    public void DestroyMeteor()
+    {
+        var explosionObj = Instantiate(explosion, gameObject.transform, false);
+
+        model.SetActive(false);
+
+        if (particles.Length == 0)
+            return;
+
+        float maxDuration = 0.0f;
+
+        foreach(var particle in particles)
+        {
+            var main = particle.main;
+            main.loop = false;
+            main.startLifetimeMultiplier = 0.2f;
+
+            if (maxDuration < main.duration)
+                maxDuration = main.duration;
+
+            Destroy(particle, main.duration);
+        }
+
+        Destroy(gameObject, maxDuration);
+        Destroy(explosionObj, maxDuration);
     }
 
 }
