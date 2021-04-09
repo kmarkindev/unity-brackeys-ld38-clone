@@ -1,18 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverUi : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TMP_Text score;
+    public Button restartButton;
+    public Button mainMenuButton;
+
+    private GameManager gameManager;
+
+    private void Awake()
     {
-        
+        gameManager = FindObjectOfType<GameManager>();
+
+        restartButton.onClick.AddListener(() =>
+        {
+            gameManager.StartGame();
+        });
+
+        mainMenuButton.onClick.AddListener(() =>
+        {
+            gameManager.StartMenu();
+        });
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        score.text = gameManager.CurrentScore.ToString("0.00s");
     }
+
 }

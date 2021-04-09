@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Assets.Prefabs.GameManager;
 using UnityEngine.Events;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,8 +21,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        //StartMenu();
-        StartGame();
+        StartMenu();
     }
 
     private void Update()
@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour
     {
         CurrentScore = 0;
         GamePhase = GamePhase.Gameplay;
+
+        foreach(var obj in FindObjectsOfType<MonoBehaviour>().OfType<IResetable>())
+        {
+            obj.Reset();
+        }
+
         OnGameStart?.Invoke();
     }
 

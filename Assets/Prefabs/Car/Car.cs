@@ -1,23 +1,46 @@
-﻿using UnityEngine;
+﻿using Assets.Prefabs.GameManager;
+using UnityEngine;
 
-public class Car : MonoBehaviour
+public class Car : MonoBehaviour, IResetable
 {
     private GameManager gameManager;
+    private Rigidbody rb;
     public GameObject model;
+    public Transform initialTransfrom;
 
     private Animator animator;
     private int turnLeftHash;
     private int turnRightHash;
+
+    private bool hasControlls = true;
 
     public float speed = 15;
     public float rotationSpeed = 70;
 
     private void Awake()
     {
+        initialTransfrom = transform;
         gameManager = FindObjectOfType<GameManager>();
+
+        gameManager.OnGameStart.AddListener(() =>
+        {
+            hasControlls = true;
+        });
+
+        gameManager.OnGameOver.AddListener(() =>
+        {
+            hasControlls = false;
+        });
+
+        gameManager.OnStartMenu.AddListener(() =>
+        {
+            hasControlls = false;
+        });
+
         animator = model.GetComponent<Animator>();
         turnLeftHash = Animator.StringToHash("turnLeft");
         turnRightHash = Animator.StringToHash("turnRight");
+        rb = GetComponent<Rigidbody>();
     }
     private void OnDrawGizmos()
     {
@@ -25,18 +48,31 @@ public class Car : MonoBehaviour
         Debug.DrawRay(transform.position, -transform.up * 5, Color.blue);
     }
 
+    public void Reset()
+    {
+        rb.isKinematic = false;
+        gameObject.transform.position = initialTransfrom.position;
+        gameObject.transform.rotation = initialTransfrom.rotation;
+        gameObject.transform.localScale = initialTransfrom.localScale;
+
+        animator.SetBool(turnLeftHash, false);
+        animator.SetBool(turnRightHash, false);
+    }
+
     private void Update()
     {
+        if (!hasControlls)
+            return;
+
         transform.position += transform.forward * speed * Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             StartRotate(true);
 
             transform.rotation = Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, -transform.up) * transform.rotation;
-
         }
-        else if(Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             StartRotate(false);
 
@@ -72,6 +108,7 @@ public class Car : MonoBehaviour
         string objTag = collision.gameObject.tag;
         if (objTag == "Meteor" || objTag == "Rock")
         {
+            rb.isKinematic = true;
             gameManager.GameOver();
         }
     }
