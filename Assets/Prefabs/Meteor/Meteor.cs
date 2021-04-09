@@ -7,14 +7,17 @@ public class Meteor : MonoBehaviour
 
     private GameManager gameManager;
     private Vector3 planetDir;
+    private Rigidbody rb;
 
     public GameObject model;
     public GameObject explosion;
     public ParticleSystem[] particles;
+    public GameObject Rock;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        rb = GetComponent<Rigidbody>();
         gameManager.OnGameStart.AddListener(OnGameStart);
     }
 
@@ -37,21 +40,29 @@ public class Meteor : MonoBehaviour
 
     private void Update()
     {
-        transform.position += planetDir * speed * Time.deltaTime;
+        if(rb != null)
+            transform.position += planetDir * speed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Planet")
+        var collTag = collision.gameObject.tag;
+        if (collTag == "Planet")
         {
-            // spawn rock on planet
+            Instantiate(Rock, gameObject.transform.position, Quaternion.identity);
 
+            DestroyMeteor();
+        }
+        else if(collTag == "Rock")
+        {
             DestroyMeteor();
         }
     }
 
     public void DestroyMeteor()
     {
+        Destroy(rb);
+
         var explosionObj = Instantiate(explosion, gameObject.transform, false);
 
         model.SetActive(false);

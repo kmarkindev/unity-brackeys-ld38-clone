@@ -148,6 +148,7 @@ MonoBehaviour:
   - {fileID: 1673426323863485867}
   - {fileID: 1673947218231810847}
   - {fileID: 1673923449689227585}
+  Rock: {fileID: 6536482239123161681, guid: dbac4af93244f1649af1c025afa3035e, type: 3}
 --- !u!54 &1805751259
 Rigidbody:
   m_ObjectHideFlags: 0

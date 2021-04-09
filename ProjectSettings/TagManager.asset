@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Planet
   - Meteor
+  - Rock
   layers:
   - Default
   - TransparentFX
